@@ -1,20 +1,23 @@
-const express=require('express');
+const express = require("express");
+const app = express();
 
-const app=express();
-app.use((req,res,next)=>{
-    console.log("first midware");
-    res.send("<h1>First midware</h1>");
-})
+const bodyParse=require('body-parser');
+app.use(bodyParse.urlencoded({extended:false}));
 
-app.use((req,res,next)=>{
-    console.log("first midware");
-    res.send("<h1>First midware</h1>");
-    next();
-})
-app.use((req,res,next)=>{
-    console.log("second midware");
-    res.send( '<h1>hello to node js </h1>');
-})
-app.listen(4000,()=>{
-    console.log("port started.....")
+app.use("/add-product", (req, res, next) => {
+  res.send(
+    '<form action="/product" method="POST">Name of the product<input type="text" name="title"><br>Size of the product <input type="number" name="size"><button type="submit">Add product</button></form>'
+  );
+});
+
+app.use("/Product", (req, res, next) => {
+  console.log(req.body);
+    res.redirect('/add-product');
+});
+
+app.use("/", (req, res, next) => {
+  console.log("Welcome,,,,,");
+});
+app.listen(4000, () => {
+  console.log("port started.....");
 });

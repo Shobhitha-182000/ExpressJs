@@ -5,8 +5,8 @@
   "main": "express.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"nodemon express.js",
-    "start-server": "node app.js"
+    "start": "nodemon express.js",
+    "start-server": "node express.js"
   },
   "author": "",
   "license": "ISC",
