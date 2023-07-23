@@ -4,20 +4,16 @@ const app = express();
 const bodyParse=require('body-parser');
 app.use(bodyParse.urlencoded({extended:false}));
 
-app.use("/add-product", (req, res, next) => {
-  res.send(
-    '<form action="/product" method="POST">Name of the product<input type="text" name="title"><br>Size of the product <input type="number" name="size"><button type="submit">Add product</button></form>'
-  );
-});
+const adminrouter=require('./Admin/admin');
+const shopRouter=require('./Admin/shop');
 
-app.use("/Product", (req, res, next) => {
-  console.log(req.body);
-    res.redirect('/add-product');
-});
+app.use('/admin',adminrouter);
+app.use(shopRouter);
 
-app.use("/", (req, res, next) => {
-  console.log("Welcome,,,,,");
+app.use( (req, res, next) => {
+  res.send('<h1>page not found</h1>');
 });
+ 
 app.listen(4000, () => {
-  console.log("port started.....");
+  console.log("4000 port started.....");
 });
