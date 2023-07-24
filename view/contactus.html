@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/contactus.css">
+    <title>bookcall</title>
+    
+</head>
+
+<body>
+    <div class="container"> 
+     <button class="right">Schedule a call</button> 
+     <button class="right">Hire with us</button> </div>
+    <table border="2px">
+        <tr>
+       <p><td colspan="2" style="color: orangered;"><h2>Book a Call</h2></td></p></tr> 
+        <tr> 
+        <td colspan="2" style="height: 10px;"><h4>Book a slot and our representative will call you within 1hr of selected
+        </h4></td></tr>
+        <form action="/contact"  method="POST" id="form">
+            <tr>
+                <td colspan="2" style="background-color: aliceblue;"><label for="name">Name</label></td><br>
+             <tr>   <td colspan="2"><input type="text" id="name" name="name" style="width: 600px;"></td></tr> 
+            </tr>
+            <tr>
+                <td colspan="2"><label for="email">Email</label></td>
+             <tr>  <td colspan="2"><input type="email" id="email" name="email" style="width: 600px;"></td></tr>
+            </tr>
+            <tr>
+                <td colspan="2"><label for="phone">Phone</label></td>
+              <tr>  <td colspan="2"><input type="tel" id="phone" name="phone" style="width: 600px;"></td></tr>
+            </tr>
+               
+            <tr>
+              <td colspan="3"><button type="submit" style="background-color: orangered; width: 600px;color: aliceblue;font-size: medium;">Save User</button></button></td>       
+               
+                </tr>
+            </form>
+    </table>
+      
+    
+</body>
+
+</html>

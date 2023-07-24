@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #1b1b1b;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .success-message {
+      background-color: #046d24;
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      font-size: 24px;
+      opacity: 0;
+      transform: translateY(-40px) scale(0.8) rotate(0deg);
+      animation: fadeInUp 0.8s ease forwards, fadeIn 0.5s 0.8s forwards, rotateIn 1s 1.3s forwards, fadeOutDown 0.5s 3.5s forwards;
+    }
+
+    .success-message.hide {
+      display: none;
+    }
+
+    .success-icon {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 36px;
+    }
+
+    /* Keyframe animations */
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes rotateIn {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeOutDown {
+      from { opacity: 1; transform: translateY(0) scale(1); }
+      to { opacity: 0; transform: translateY(40px) scale(0.8); }
+    }
+  </style>
+</head>
+<body>
+  <div class="success-message" id="successMessage">
+    <div class="success-icon">
+      <!-- You can use an icon here (e.g., a checkmark icon) -->
+      &#10004;
+    </div>
+   Form Successfully Submitted
+  </div>
+
+  <script>
+    function animateSuccessMessage() {
+      const successMessage = document.getElementById('successMessage');
+      successMessage.classList.add('show');
+
+      setTimeout(() => {
+        successMessage.classList.add('hide');
+        setTimeout(() => {
+          successMessage.classList.remove('show', 'hide');
+        }, 500); // Delay before removing the 'show' and 'hide' classes
+      }, 1000); // Hide after 3.5 seconds (adjust this value as needed)
+    }
+
+    function showSuccessMessageRepeatedly() {
+      animateSuccessMessage();
+      setInterval(animateSuccessMessage, 2000); // Show the message every 4 seconds (adjust this value as needed)
+    }
+
+    showSuccessMessageRepeatedly();
+  </script>
+</body>
+</html>

@@ -1,15 +1,15 @@
 const express=require('express');
 const router=express.Router();
+const path=require('path');
+const pathDir=require('../util/path');
 
 router.get("/add-expense", (req, res, next) => {
-    res.send(
-      '<form action="/admin/add-expense" method="POST">Name of the product<input type="text" name="title"><br>Size of the product <input type="number" name="size"><button type="submit">Add product</button></form>'
-    );
+    res.sendFile(path.join(pathDir,'view','admin.html'))
   });
   
 router.post("/add-expense", (req, res, next) => {
     console.log(req.body);
-      res.redirect('/admin/add-expense');
+      res.redirect('/contact');
   });
 
 module.exports=router;
