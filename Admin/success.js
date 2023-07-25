@@ -1,10 +1,8 @@
-const path=require('path');
+ 
 const express=require('express');
-const success=express.Router();
-const pathDir=require('../util/path');
+const success=express();
+const contact= require('../Controllers/contact')
 
-success.get('/success',(req,res,next)=>{
-    res.sendFile(pathDir,'view','success.html');
-})
+success.get('/success',contact.getSuccessMessage )
 
 module.exports=success;
